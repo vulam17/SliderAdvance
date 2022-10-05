@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://kit.fontawesome.com/ea9a0dec7a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>Slider</h1>
+    <div class="container">
+        <div class="window"></div>
+        <div id="slide">
+            <div class="sub1">
+                <img src="asset/a.jpg">
+                <p>
+                    <i class="fa-solid fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                </p>
+            </div>
+            <div class="sub2">
+                <img src="asset/b.jpg">
+                <p>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-solid fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                </p>
+            </div>
+            <div class="sub3">
+                <img src="asset/c.jpg">
+                <p>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-solid fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                </p>
+            </div>
+            <div class="sub4">
+                <img src="asset/d.jpg">
+                <p>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-solid fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                </p>
+            </div>
+            <div class="sub5">
+                <img src="asset/e.jpg">
+                <p>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-regular fa-circle"></i>
+                    <i class="fa-solid fa-circle"></i>
+                </p>
+            </div>
+        </div>
+    </div>
+    <p>
+        <i onclick=left() class="fa-solid fa-circle-chevron-left"></i>
+        <i onclick=right() class="fa-solid fa-circle-chevron-right"></i>
+    </p>
+</body>
+<script>
+    let position = 0; countBefore = 0, countAfter = 1
+    let interval = setInterval(watchDog,60000)
+    function watchDog()
+    {
+        if(countAfter < countBefore) 
+        {
+            document.getElementById("slide").style.animationName = "chay"
+            countAfter = countBefore
+        }   
+    }
+    function right() {
+        document.getElementById("slide").style.animationName = "none"
+        if(position < 4) position++
+        document.getElementById("slide").style.left = "-" + position + "00%"
+        flag = true
+        countBefore ++
+    }
+    function left() {
+        document.getElementById("slide").style.animationName = "none"
+        if(position > 0) position--
+        document.getElementById("slide").style.left = "-" + position + "00%"
+        flag = true
+        countBefore ++
+    }
+</script>
+
+</html>
